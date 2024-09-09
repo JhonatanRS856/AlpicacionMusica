@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.img-style{
+    @apply w-full h-full object-cover block;
+}
+
+.btn{
+    @apply flex items-center justify-center duration-200;
+}

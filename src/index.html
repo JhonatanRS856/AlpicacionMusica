@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music App</title>
+    <link rel="shortcut icon" href="../img/favicon-32x32.png" type="image/png">
+    <link rel="stylesheet" href="../dist/input.css">
+    <link rel="stylesheet" href="../dist/output.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+    <div
+        class="content w-[100vw] h-[100vh] grid grid-cols-1 grid-rows-[auto_1fr_auto] min-[700px]:grid-rows-[1fr_auto] min-[700px]:grid-cols-[35%_1fr] lg:grid-cols-[340px_1fr]">
+        <aside class="aside p-3">
+            <div class="flex flex-col container-aside h-full w-full">
+                <header class="flex items-center justify-between min-[700px]:pb-4">
+                    <div class="logo">
+                        <span class="material-icons-sharp">
+                            play_circle_outline
+                        </span>
+
+                        MusicPlayer
+                    </div>
+
+
+                    <button class="btn min-[700px]:hidden" id="abrirNav">
+                        <span class="material-icons-sharp">
+                            menu
+                        </span>
+                    </button>
+                </header>
+
+                <div class="containerNav px-3 py-4 min-[700px]:px-0 min-[700px]:py-0">
+                    <div class="w-full flex justify-between items-center mb-5 min-[700px]:hidden">
+                        <h3 class="text-2xl">Menu</h3>
+                        <button class="btn" id="btnCerrar">
+                            <span class="material-icons-sharp">
+                                close
+                            </span>
+                        </button>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="text" placeholder="Buscar" id="searchSongs">
+                        <span class="material-icons-sharp">
+                            search
+                        </span>
+                    </div>
+
+
+                    <nav class="nav">
+                        <ul>
+                            <li>
+                                <a href="#" class="nav_link active" data-target="section-main">
+                                    <span class="material-icons-sharp">
+                                        home
+                                    </span>
+                                    Pagina Principal
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav_link" data-target="section-canciones">
+                                    <span class="material-icons-sharp">
+                                        audiotrack
+                                    </span>
+                                    Canciones
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav_link">
+                                    <span class="material-icons-sharp">
+                                        library_music
+                                    </span>
+                                    Listas de Reproducción
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav_link">
+                                    <span class="material-icons-sharp">
+                                        favorite
+                                    </span>
+                                    Favoritos
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav_link">
+                                    <span class="material-icons-sharp">
+                                        download
+                                    </span>
+                                    Descargas
+                                </a>
+                            </li>
+                            <li>
+                                <a href="configuracion.html" class="nav_link" data-target="section-configuracion">
+                                    <span class="material-icons-sharp">
+                                        settings
+                                    </span>
+                                    Configuración
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav_link">
+                                    <span class="material-icons-sharp">
+                                        logout
+                                    </span>
+                                    Salir
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </aside>
+        <main class="main p-3 pb-0">
+            <section class="section-main section" id="section-main">
+                <div class="header">
+                    <h1>Página Principal</h1>
+                    <span>Elementos multimedia recientes</span>
+                </div>
+
+                <section class="cards-section">
+                    <div class="container-cards" id="container-cards">
+                        <!-- Las cards seran generadas por JS -->
+                    </div>
+                </section>
+            </section>
+            <section class="section-configuracion section" id="section-configuracion">
+                <h1>Configuración</h1>
+                <div class="content-confi">
+                    <div>
+                        <h3>Personalización</h3>
+                        <div class="box-confi">
+                            <div class="top">
+                                <div class="left">
+                                    <span class="material-icons-sharp">
+                                        invert_colors
+                                    </span>
+                                    <h4>Tema de la aplicación</h4>
+                                </div>
+                                <div class="rigth">
+                                    <h4 class="indicador">Oscuro</h4>
+                                    <span class="material-icons-sharp iconExpand">
+                                        expand_more
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-box">
+                                <button class="btnTheme active" id="btnDark">
+                                    <div class="circle"></div>
+                                    <span>Oscuro</span>
+                                </button>
+                                <button class="btnTheme" id="btnLigth">
+                                    <div class="circle"></div>
+                                    <span>Claro</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="box-confi">
+                            <div class="top">
+                                <div class="left">
+                                    <span class="material-icons-sharp">
+                                        color_lens
+                                    </span>
+                                    <h4>Color de enfasis</h4>
+                                </div>
+                                <span class="material-icons-sharp iconExpand">
+                                    expand_more
+                                </span>
+                            </div>
+                            <div class="faq-box">
+                                <div class="colors">
+                                    <div class="color"></div>
+                                    <div class="color"></div>
+                                    <div class="color choose"></div>
+                                    <div class="color"></div>
+                                    <div class="color"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="flex flex-col">
+                        <h3>Acerca de</h3>
+                        <div class="box-confi">
+                            <div class="top">
+                                <div class="left">
+                                    <span class="material-icons-sharp">
+                                        play_circle_outline
+                                    </span>
+    
+                                    MusicPlayer
+                                </div>
+                                <span class="material-icons-sharp iconExpand">
+                                    expand_more
+                                </span>
+                            </div>
+                            <div class="faq-box">
+                                <div class="flex w-full h-full justify-between items-center">
+                                    <div class="derechos">
+                                        <span class="material-icons-sharp">
+                                            play_circle_outline
+                                        </span>
+                                        <div>
+                                            <b>MusicPlayer</b><br>
+                                            <small>&copy;Jhonatan856RS. Todos los derechos reservados</small>
+                                        </div>
+                                    </div>
+                                    <a href="https://github.com/JhonatanRS856" target="_blank">
+                                        <i class='bx bxl-github'></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section-canciones section" id="section-canciones">
+                <header>
+                    <h1>Música</h1>
+                    <div class="filters">
+                        <button class="btnFilter active" data-target="containerSecon">
+                            Canciones
+                        </button>
+                        <button class="btnFilter " data-target="containerArtist">
+                            Artistas
+                        </button>
+                    </div>
+                </header>
+                
+                <button class="btnAleatorio" id="btnAleatorio">
+                    <span class="material-icons-sharp">
+                        shuffle
+                    </span>
+                    Reproducir en orden aleatorio
+                </button>
+                <div class="container-principal" id="container-grids">
+                    <div class="grid-container gridC active" id="containerSecon">
+                        
+                    </div>
+                    <div class="artist-container gridC" id="containerArtist">
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer p-3">
+            <div class="containerFooter">
+                <div class="div-progress-song">
+                    <span class="currentTime">00:00</span>
+                    <div class="progress-container" id="progressContainer">
+                        <div class="progress-bar" id="progressBar"></div>
+                        <div class="thumb" id="progressThumb"></div>
+                    </div>
+                    <span id="totalTime">03:16</span>
+                </div>
+                <div class="playerMusic grid-rows-2 grid-cols-2 min-[500px]:grid-cols-[1fr_1fr_auto] min-[500px]:grid-rows-1 min-[700px]:grid-cols-[1fr_auto_1fr]">
+                    <audio src="../music/psycho.mp3" id="audio"></audio>
+                    <div class="info-player col-[1/3] min-[500px]:col-[1/2]">
+                        <figure>
+                            <img src="../img/psycho.jpg" alt="" class="img-style" id="imgSong">
+                        </figure>
+                        <div class="data-song">
+                            <h2 class="song-name" id="songName">Psycho</h2>
+                            <span class="artist-name" id="artistSpan">Red Velvet</span>
+                        </div>
+                    </div>
+                    <div
+                        class="controles col-[1/2] min-[500px]:col-[2/3] min-[500px]:justify-end min-[700px]:justify-center">
+                        <button class="btn btnToggle" id="randomBtn">
+                            <span class="material-icons-sharp">
+                                shuffle
+                            </span>
+                        </button>
+                        <button class="btn" id="previusBtn">
+                            <span class="material-icons-sharp">
+                                skip_previous
+                            </span>
+                        </button>
+                        <button class="btnPlay" id="playBtn">
+                            <span class="material-icons-sharp" id="playIcon">
+                                play_arrow
+                            </span>
+                        </button>
+                        <button class="btn" id="nextBtn">
+                            <span class="material-icons-sharp">
+                                skip_next
+                            </span>
+                        </button>
+                        <button class="btn btnToggle" id="repeatButton">
+                            <span class="material-icons-sharp">
+                                repeat_one
+                            </span>
+                        </button>
+                    </div>
+                    <div class="mas-btn col-[2/3] row-[-2/-1] min-[500px]:col-[3/4] min-[500px]:row-[1]"
+                        id="more-buttons">
+                        <div class="btns-responsive">
+                            <button class="btn btnVolume" id="btnVolumen">
+                                <span class="material-icons-sharp">
+                                    volume_up
+                                </span>
+                                <div class="volumenDiv">
+                                    <span class="material-icons-sharp">
+                                        volume_up
+                                    </span>
+                                    <div class="volume-bar">
+                                        <div class="bar"></div>
+                                        <div class="thumb"></div>
+                                    </div>
+                                </div>
+                            </button>
+                            <button class="btn openFull" id="openFull">
+                                <span class="material-icons-sharp">
+                                    open_in_full
+                                </span>
+                            </button>
+                            <button class="btn radioBtn" id="radioPlayer">
+                                <span class="material-icons-sharp">
+                                    radio
+                                </span>
+                            </button>
+                        </div>
+
+                        <button class="btn min-[700px]:hidden" id="mostrarBotones">
+                            <span class="material-icons-sharp">
+                                more_vert
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
